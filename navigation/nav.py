@@ -11,18 +11,18 @@ PATH = r'C:\Program Files (x86)\msedgedriver.exe'
 edge_options = webdriver.EdgeOptions()
 edge_service = Service(PATH)
 driver = webdriver.Edge(service=edge_service, options=edge_options)
-driver.get("https://codewithmosh.com/")
-link = driver.find_element(By.LINK_TEXT, 'Courses')
+driver.get("https://www.egerton.ac.ke/")
+link = driver.find_element(By.LINK_TEXT, 'Virtual Tour | Gather to learn')
 link.click()
 
 
 try:
-    element = WebDriverWait(driver, 15).until(
-        EC.presence_of_element_located((By.LINK_TEXT, 'Courses'))
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.LINK_TEXT, 'Virtual Tour | Gather to learn'))
     )
     element.clear()
     element.click()
-    driver.back()
-    driver.forward()
+  
 except:
     driver.quit()
+
